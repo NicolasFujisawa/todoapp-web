@@ -21,7 +21,6 @@ export const Container = styled.div`
   h1 {
     font-size: 54px;
     color: ${props => props.theme.colors.primary};
-    margin-top: 40px;
   }
 
   p {
@@ -44,7 +43,7 @@ export const Container = styled.div`
     height: 64px;
     background: ${props => props.theme.colors.primary};
     border-radius: 8px;
-    border: 3px solid #6b48bd;
+    border: 3px solid ${props => props.theme.colors.secondary};
     font-size: 24px;
     font-weight: 500;
     line-height: 32px;

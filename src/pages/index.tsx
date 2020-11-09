@@ -16,7 +16,7 @@ const Home: React.FC = () => {
       <div className="content">
         <h1>Todo App</h1>
         <p>Resolva TODOS sem nenhum obstáculo</p>
-        <Link href="/todo-page" passHref>
+        <Link href="/todo" passHref>
           <button>Começar</button>
         </Link>
       </div>

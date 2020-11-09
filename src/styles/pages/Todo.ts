@@ -30,13 +30,75 @@ export const Container = styled.div`
     border-radius: 8px;
   }
 
-  .content .text {
+  .create-todo-form {
+    display: flex;
+  }
+
+  .create-todo-form fieldset {
+    border: 0;
+    width: 100%;
+  }
+
+  .create-todo-form .input-block .images-container {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    gap: 16px;
+  }
+
+  .create-todo-form .input-block .images-container img {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+
+  .create-todo-form .input-block .new-image {
+    width: 80%;
+    height: 40px;
+    background: rgba(123, 124, 126, 0.8);
+    border: 3px solid rgba(73, 74, 76, 0.8);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: filter 0.2s;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .create-todo-form .input-block input[type='file'] {
+    display: none;
+  }
+
+  .create-todo-form .input-block {
+    width: 100%;
+  }
+  .create-todo-form .input-block + .input-block {
+    margin-top: 10px;
+  }
+
+  .create-todo-form .input-block .text {
     width: 100%;
     border: none;
     border-bottom: 3px solid #555;
     background: none;
     padding: 10px;
     color: ${props => props.theme.colors.text};
+  }
+
+  .create-todo-form .confirm-create {
+    width: 70px;
+    height: 48px;
+    cursor: pointer;
+    background: ${props => props.theme.colors.green};
+    border: 3px solid #41a363;
+    border-radius: 8px;
+    padding: 4px;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 26px;
+    transition: filter 0.2s;
+    margin-left: 10px;
   }
 
   h3 {
@@ -89,6 +151,10 @@ export const Container = styled.div`
   }
 
   button:hover {
+    filter: brightness(117%);
+  }
+
+  label.new-image:hover {
     filter: brightness(117%);
   }
 `
