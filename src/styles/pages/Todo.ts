@@ -19,8 +19,18 @@ export const Container = styled.div`
     z-index: -5;
   }
 
+  .background svg {
+    height: 930px;
+    overflow: hidden;
+    width: 1830px;
+  }
+
   .grettings {
     margin-right: 120px;
+  }
+
+  .grettings h1 {
+    margin-bottom: 40px;
   }
 
   .content {

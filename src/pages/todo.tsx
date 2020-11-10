@@ -1,16 +1,12 @@
 import React, { FormEvent, useEffect, useState, ChangeEvent } from 'react'
-import {
-  FiTrash2,
-  FiCheckCircle,
-  FiChevronDown,
-  FiChevronUp,
-  FiPlus
-} from 'react-icons/fi'
+import { FiChevronDown, FiChevronUp, FiPlus } from 'react-icons/fi'
 import { Container } from '../styles/pages/Todo'
-import Bg from '../assets/moonlight.svg'
+import Bg from '../assets/moonlight2.svg'
 import Todo from '../model/todo'
 import api from '../service/api'
 import * as Yup from 'yup'
+import DeleteButton from '../components/DeleteButton'
+import FinishButton from '../components/FinishButton'
 
 const todoSchema = Yup.object({
   task: Yup.string().required('Tarefa é Obrigatória')
@@ -87,6 +83,22 @@ const TodoPage: React.FC = () => {
     setPreviewImages(previewImages.concat(selectedImagesPreview))
   }
 
+  async function handleDelete(id: number) {
+    console.log('delete me', id)
+    await api.delete(`/v3/todo?id=${id}`).then(response => {
+      console.log(response)
+      setToggle(!toggle)
+    })
+  }
+
+  async function handleFinish(id: number) {
+    console.log('finish me', id)
+    await api.put(`/v3/todo?id=${id}`).then(response => {
+      console.log(response)
+      setToggle(!toggle)
+    })
+  }
+
   return (
     <Container>
       <div className="background">
@@ -141,12 +153,8 @@ const TodoPage: React.FC = () => {
               return (
                 <div className="task" key={props.id}>
                   <p>{props.task}</p>
-                  <i>
-                    <FiTrash2 size={24} />
-                  </i>
-                  <i>
-                    <FiCheckCircle size={24} />
-                  </i>
+                  <DeleteButton action={handleDelete} id={props.id} />
+                  <FinishButton action={handleFinish} id={props.id} />
                 </div>
               )
             }
@@ -161,12 +169,7 @@ const TodoPage: React.FC = () => {
               return (
                 <div className="task" key={props.id}>
                   <p>{props.task}</p>
-                  <i>
-                    <FiTrash2 size={24} />
-                  </i>
-                  <i>
-                    <FiCheckCircle size={24} />
-                  </i>
+                  <DeleteButton action={handleDelete} id={props.id} />
                 </div>
               )
             }
