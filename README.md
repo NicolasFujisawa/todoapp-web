@@ -1,3 +1,14 @@
+# TodoApp
+Projeto para armazenar suas tarefas diarias e resolve-las sem nenhum obstaculo
+
+## Projeto no Vercel
+
+acesse: https://todoapp-web.vercel.app/todo
+
+## Backend
+
+Inicie seu propio backend aqui -> https://github.com/NicolasFujisawa/padroes-de-projeto-java/blob/master/README.md
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
