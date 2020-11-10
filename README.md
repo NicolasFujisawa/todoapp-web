@@ -3,7 +3,7 @@ Projeto para armazenar suas tarefas diarias e resolve-las sem nenhum obstaculo
 
 ## Projeto no Vercel
 
-acesse: https://todoapp-web.vercel.app/todo
+acesse: https://todoapp-web.vercel.app/
 
 ## Backend
 
