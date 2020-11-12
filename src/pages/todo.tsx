@@ -1,6 +1,8 @@
 import React, { FormEvent, useEffect, useState, ChangeEvent } from 'react'
 import { FiChevronDown, FiChevronUp, FiPlus } from 'react-icons/fi'
 import { Container } from '../styles/pages/Todo'
+import Zoom from 'react-medium-image-zoom'
+import 'react-medium-image-zoom/dist/styles.css'
 import Bg from '../assets/moonlight2.svg'
 import Todo from '../model/todo'
 import api from '../service/api'
@@ -13,7 +15,7 @@ const todoSchema = Yup.object({
 })
 
 const TodoPage: React.FC = () => {
-  const [todos, setTodos] = useState<Todo[]>()
+  const [todos, setTodos] = useState<Todo[]>([])
   const [page, setPage] = useState<number>(0)
 
   const [task, setTask] = useState<string>('')
@@ -157,7 +159,9 @@ const TodoPage: React.FC = () => {
                     {todo.images.map(image => {
                       return (
                         <div className="display-image" key={image.id}>
-                          <img src={image.url} alt={todo.task} />
+                          <Zoom zoomMargin={100}>
+                            <img src={image.url} alt={todo.task} />
+                          </Zoom>
                         </div>
                       )
                     })}
@@ -185,7 +189,9 @@ const TodoPage: React.FC = () => {
                     {todo.images.map(image => {
                       return (
                         <div className="display-image" key={image.id}>
-                          <img src={image.url} alt={todo.task} />
+                          <Zoom zoomMargin={100}>
+                            <img src={image.url} alt={todo.task} />
+                          </Zoom>
                         </div>
                       )
                     })}

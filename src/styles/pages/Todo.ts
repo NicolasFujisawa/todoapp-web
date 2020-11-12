@@ -144,12 +144,10 @@ export const Container = styled.div`
   }
 
   .task .task-data .display-image:hover {
-    width: 50px;
-    height: 50px;
+    box-shadow: 0px 0px 10px rgba(33, 34, 36, 0.7);
   }
+
   .task .task-data .display-image img {
-    height: 100%;
-    width: 100%;
   }
 
   .task i {
