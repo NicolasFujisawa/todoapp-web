@@ -116,7 +116,11 @@ export const Container = styled.div`
   }
 
   .task {
+    display: flex;
+    align-self: center;
+    justify-content: space-between;
     width: 100%;
+    height: 65px;
     background: rgba(122, 124, 125, 0.7);
     padding: 18px;
     margin: 5px 0;
@@ -124,8 +128,28 @@ export const Container = styled.div`
     overflow: hidden;
   }
 
-  .task p {
-    float: left;
+  .task .task-data {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .task .task-data .display-image {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+    margin-left: 10px;
+  }
+
+  .task .task-data .display-image:hover {
+    width: 50px;
+    height: 50px;
+  }
+  .task .task-data .display-image img {
+    height: 100%;
+    width: 100%;
   }
 
   .task i {

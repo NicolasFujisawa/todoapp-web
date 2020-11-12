@@ -148,13 +148,25 @@ const TodoPage: React.FC = () => {
 
         <div className="not-completed">
           <h3>Incompletas</h3>
-          {todos?.map(props => {
-            if (!props.is_completed) {
+          {todos?.map(todo => {
+            if (!todo.is_completed) {
               return (
-                <div className="task" key={props.id}>
-                  <p>{props.task}</p>
-                  <DeleteButton action={handleDelete} id={props.id} />
-                  <FinishButton action={handleFinish} id={props.id} />
+                <div className="task" key={todo.id}>
+                  <div className="task-data">
+                    <p>{todo.task}</p>
+                    {todo.images.map(image => {
+                      return (
+                        <div className="display-image" key={image.id}>
+                          <img src={image.url} alt={todo.task} />
+                        </div>
+                      )
+                    })}
+                  </div>
+
+                  <div className="task-buttons">
+                    <DeleteButton action={handleDelete} id={todo.id} />
+                    <FinishButton action={handleFinish} id={todo.id} />
+                  </div>
                 </div>
               )
             }
@@ -164,12 +176,24 @@ const TodoPage: React.FC = () => {
 
         <div className="is-completed">
           <h3>Completas</h3>
-          {todos?.map(props => {
-            if (props.is_completed) {
+          {todos?.map(todo => {
+            if (todo.is_completed) {
               return (
-                <div className="task" key={props.id}>
-                  <p>{props.task}</p>
-                  <DeleteButton action={handleDelete} id={props.id} />
+                <div className="task" key={todo.id}>
+                  <div className="task-data">
+                    <p>{todo.task}</p>
+                    {todo.images.map(image => {
+                      return (
+                        <div className="display-image" key={image.id}>
+                          <img src={image.url} alt={todo.task} />
+                        </div>
+                      )
+                    })}
+                  </div>
+
+                  <div className="task-buttons">
+                    <DeleteButton action={handleDelete} id={todo.id} />
+                  </div>
                 </div>
               )
             }
